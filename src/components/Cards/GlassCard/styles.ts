@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Card = styled.button`
+  all: unset;
+  cursor: pointer;
+
   position: relative;
   height: 280px;
   width: 400px;
