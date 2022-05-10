@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { api } from "../../../lib/axios";
 
-interface Pokemon {
+export interface Pokemon {
   id: string;
   name: string;
   sprites: PokemonStripes;
@@ -32,6 +32,8 @@ export default async function handler(
     const pokemonDetailedData: Pokemon[] = pokemonDetailed.map(
       ({ data }) => data
     );
+
+    console.log({ pokemonsLength: pokemonDetailedData.length });
 
     return res.status(200).json(pokemonDetailedData);
   } catch (error) {

@@ -1,18 +1,20 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetServerSideProps } from "next";
+import { PokemonLists } from "../components/Lists/PokemonLists";
 import { api } from "../lib/axios";
+import { Pokemon } from "./api/pokemon";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const teste = await api.get(`${process.env.NEXT_PUBLIC_API_URL}/pokemon`);
+  const { data } = await api.get(`${process.env.NEXT_PUBLIC_API_URL}/pokemon`);
 
-  console.log(teste);
+  console.log(data);
 
   return {
-    props: {},
+    props: {
+      pokemons: data,
+    },
   };
 };
 
-const Home: NextPage = () => {
-  return <div>Hello world</div>;
-};
-
-export default Home;
+export default function Home({ pokemons }: { pokemons: Pokemon[] }) {
+  return <PokemonLists pokemons={pokemons} />;
+}
