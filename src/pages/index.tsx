@@ -4,7 +4,7 @@ import { api } from "../lib/axios";
 import { Pokemon } from "./api/pokemon";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get(`${process.env.NEXT_PUBLIC_API_URL}/pokemon`);
+  const { data } = await api.get("/pokemon");
 
   return {
     props: {
