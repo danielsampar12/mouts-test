@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { GlassCard } from ".";
-import { Pokemon } from "../../../pages/api/pokemon";
+import { Pokemon } from "../../../../pages/api/pokemon";
 
 test("GlassCard renders correctly", () => {
   const pokemon: Pokemon = {
@@ -14,5 +14,7 @@ test("GlassCard renders correctly", () => {
     },
   };
 
-  render(<GlassCard pokemon={pokemon} />);
+  const { getByText } = render(<GlassCard pokemon={pokemon} />);
+
+  expect(getByText("pikachu")).toBeInTheDocument();
 });
