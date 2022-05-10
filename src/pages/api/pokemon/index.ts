@@ -29,11 +29,13 @@ export default async function handler(
 
     const pokemonDetailed = await Promise.all(pokemonDetailedDataPromises);
 
-    const pokemonDetailedData: Pokemon[] = pokemonDetailed.map(
-      ({ data }) => data
-    );
-
-    console.log({ pokemonsLength: pokemonDetailedData.length });
+    const pokemonDetailedData: Pokemon[] = pokemonDetailed.map(({ data }) => {
+      return {
+        id: data.id,
+        name: data.name,
+        sprites: data.sprites,
+      };
+    });
 
     return res.status(200).json(pokemonDetailedData);
   } catch (error) {

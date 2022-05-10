@@ -6,8 +6,6 @@ import { Pokemon } from "./api/pokemon";
 export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await api.get(`${process.env.NEXT_PUBLIC_API_URL}/pokemon`);
 
-  console.log(data);
-
   return {
     props: {
       pokemons: data,
