@@ -8,7 +8,10 @@ interface GlassCardProps {
 export function GlassCard({ pokemon }: GlassCardProps) {
   return (
     <S.Card>
-      <h2>{pokemon.name}</h2>
+      <S.CardContent>
+        <S.PokemonImage src={pokemon.sprites.front_default} />
+        <h2>{pokemon.name}</h2>
+      </S.CardContent>
     </S.Card>
   );
 }
