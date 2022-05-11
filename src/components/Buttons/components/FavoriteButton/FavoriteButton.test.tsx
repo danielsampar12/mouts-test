@@ -17,7 +17,7 @@ describe("FavoriteButton test", () => {
     const { getByText } = render(<FavoriteButton pokemon={pokemonMock} />);
 
     expect(getByText("Favoritar pokemon")).toBeInTheDocument();
-    expect(() => getByText("Tirar dos favoritos")).toThrow(
+    expect(() => getByText("Remover dos favoritos")).toThrow(
       "Unable to find an element"
     );
 
@@ -36,12 +36,12 @@ describe("FavoriteButton test", () => {
 
     const { getByText } = render(<FavoriteButton pokemon={pokemonMock} />);
 
-    expect(getByText("Tirar dos favoritos")).toBeInTheDocument();
+    expect(getByText("Remover dos favoritos")).toBeInTheDocument();
     expect(() => getByText("Favoritar pokemon")).toThrow(
       "Unable to find an element"
     );
 
-    fireEvent.click(getByText("Tirar dos favoritos"));
+    fireEvent.click(getByText("Remover dos favoritos"));
     expect(removeFromFavorites).toHaveBeenCalledWith(pokemonMock.id);
   });
 });

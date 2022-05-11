@@ -33,7 +33,7 @@ export function FavoriteButton({ pokemon }: FavoriteButtonProps) {
     <S.Button isFavorited={isFavorited} onClick={handleClick}>
       {isFavorited ? (
         <S.ButtonContent>
-          <FiTrash /> Tirar dos favoritos
+          <FiTrash /> Remover dos favoritos
         </S.ButtonContent>
       ) : (
         <S.ButtonContent>
