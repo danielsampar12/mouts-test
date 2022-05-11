@@ -40,6 +40,8 @@ export default async function handler(
 
       const page = typeof queryPage === "string" ? +queryPage : 0;
 
+      if (page < 0) return res.status(400).json([]);
+
       const { data } = await api.get(
         `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}&offset=${
           page * OFFSET_RATIO

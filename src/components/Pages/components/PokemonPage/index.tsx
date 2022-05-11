@@ -1,7 +1,6 @@
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { Pokemon } from "../../../../pages/api/pokemon";
-import { PaginationButton } from "../../../Buttons/components/PaginationButton";
+import { Pagination } from "../../../Navigations/Pagination";
 import { PokemonLists } from "../../../Lists/components/PokemonLists";
 import { PokemonModal } from "../../../Modals/components/PokemonModal";
 import { NavBar } from "../../../Navigations/components/NavBar";
@@ -37,7 +36,7 @@ export function PokemonPage({
         pokemons={pokemons}
       />
 
-      {!isFavoritePage && <PaginationButton page={queryPage} />}
+      {!isFavoritePage && <Pagination page={queryPage} />}
     </>
   );
 }

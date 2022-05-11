@@ -8,6 +8,15 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const page = typeof queryPage === "string" ? +queryPage : 0;
 
+  if (page < 0) {
+    return {
+      props: {},
+      redirect: {
+        destination: "/404",
+      },
+    };
+  }
+
   const { data } = await api.get(`/pokemon/?page=${page}`);
 
   return {

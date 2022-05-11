@@ -4,7 +4,7 @@ import { RouterContext } from "next/dist/shared/lib/router-context";
 import { NavBar } from ".";
 import { createMockRouter } from "../../../../tests/createMockRouter";
 
-describe("FavoriteButton", () => {
+describe("NavBar", () => {
   it("Should navigate correctly", () => {
     const push = jest.fn();
 

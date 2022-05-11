@@ -7,7 +7,7 @@ interface PaginationProps {
   page: number;
 }
 
-export function PaginationButton({ page }: PaginationProps) {
+export function Pagination({ page }: PaginationProps) {
   const router = useRouter();
 
   const handleNextPage = () => {
@@ -23,7 +23,10 @@ export function PaginationButton({ page }: PaginationProps) {
   return (
     <S.Container>
       {page > 0 ? (
-        <S.ButtonsContainer onClick={handlePreviousPage}>
+        <S.ButtonsContainer
+          data-testid="previous-button"
+          onClick={handlePreviousPage}
+        >
           <S.Button>
             <FiArrowLeft />
           </S.Button>
@@ -31,8 +34,8 @@ export function PaginationButton({ page }: PaginationProps) {
       ) : (
         <S.Spacer />
       )}
-      <S.Button>{page + 1}</S.Button>
-      <S.ButtonsContainer onClick={handleNextPage}>
+      <S.Button data-testid="page">{page + 1}</S.Button>
+      <S.ButtonsContainer data-testid="next-button" onClick={handleNextPage}>
         <S.Button>
           <FiArrowRight />
         </S.Button>
