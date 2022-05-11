@@ -6,7 +6,7 @@ export const Modal = styled.div`
   width: 800px;
   margin: 30px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 350px;
     margin: 0px;
   }
