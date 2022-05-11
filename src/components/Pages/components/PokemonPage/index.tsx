@@ -8,7 +8,7 @@ interface HomeProps {
   pokemons: Pokemon[];
 }
 
-export function HomePage({ pokemons }: HomeProps) {
+export function PokemonPage({ pokemons }: HomeProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalPokemon, setModalPokemon] = useState<Pokemon | null>(null);
 

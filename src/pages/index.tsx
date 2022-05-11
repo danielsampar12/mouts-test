@@ -1,5 +1,5 @@
 import type { GetServerSideProps } from "next";
-import { HomePage } from "../components/Pages/components/HomePage";
+import { PokemonPage } from "../components/Pages/components/PokemonPage";
 import { api } from "../lib/axios";
 import { Pokemon } from "./api/pokemon";
 
@@ -14,5 +14,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 export default function Home({ pokemons }: { pokemons: Pokemon[] }) {
-  return <HomePage pokemons={pokemons} />;
+  return <PokemonPage pokemons={pokemons} />;
 }
