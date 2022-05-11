@@ -6,9 +6,10 @@ import { NavBar } from "../../../Navigations/components/NavBar";
 
 interface HomeProps {
   pokemons: Pokemon[];
+  isFavoritePage?: boolean;
 }
 
-export function PokemonPage({ pokemons }: HomeProps) {
+export function PokemonPage({ pokemons, isFavoritePage = false }: HomeProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalPokemon, setModalPokemon] = useState<Pokemon | null>(null);
 
@@ -19,6 +20,7 @@ export function PokemonPage({ pokemons }: HomeProps) {
         <PokemonModal
           closeModal={() => setIsModalOpen(false)}
           pokemon={modalPokemon}
+          isFavoritePage={isFavoritePage}
         />
       ) : (
         <></>

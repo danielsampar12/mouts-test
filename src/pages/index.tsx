@@ -1,5 +1,6 @@
 import type { GetServerSideProps } from "next";
 import { PokemonPage } from "../components/Pages/components/PokemonPage";
+import { useFavoritePokemons } from "../hooks/favoritePokemons";
 import { api } from "../lib/axios";
 import { Pokemon } from "./api/pokemon";
 

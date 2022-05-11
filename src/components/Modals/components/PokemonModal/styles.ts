@@ -12,9 +12,9 @@ export const Modal = styled.div`
   transition: opacity linear 0.25s;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.3);
@@ -24,7 +24,14 @@ export const Modal = styled.div`
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 
-  z-index: 2;
+  z-index: 3;
+`;
+
+export const ModalContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 export const ModalBackground = styled.div`

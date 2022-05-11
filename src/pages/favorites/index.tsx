@@ -1,6 +1,8 @@
 import { PokemonPage } from "../../components/Pages/components/PokemonPage";
-import { Pokemon } from "../api/pokemon";
+import { useFavoritePokemons } from "../../hooks/favoritePokemons";
 
 export default function Favorites() {
-  return <PokemonPage pokemons={[]} />;
+  const { favoritePokemons } = useFavoritePokemons();
+
+  return <PokemonPage isFavoritePage pokemons={favoritePokemons} />;
 }
