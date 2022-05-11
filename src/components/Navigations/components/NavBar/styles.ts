@@ -13,6 +13,8 @@ export const Container = styled.div`
   justify-content: center;
 
   padding-top: 16px;
+
+  z-index: 2;
 `;
 
 export const NavLink = styled.a`

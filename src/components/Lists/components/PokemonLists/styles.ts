@@ -8,4 +8,6 @@ export const Container = styled.div`
   max-width: 1200px;
   flex-wrap: wrap;
   z-index: 1;
+
+  padding-top: 40px;
 `;

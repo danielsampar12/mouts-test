@@ -5,11 +5,26 @@ export interface Pokemon {
   id: string;
   name: string;
   sprites: PokemonStripes;
+  types: PokemonType[];
+  stats: PokemonStat[];
 }
 
 interface PokemonStripes {
   front_default: string;
   back_default: string;
+}
+
+interface PokemonStat {
+  base_stat: number;
+  stat: {
+    name: string;
+  };
+}
+
+interface PokemonType {
+  type: {
+    name: string;
+  };
 }
 
 export default async function handler(
@@ -34,6 +49,8 @@ export default async function handler(
         id: data.id,
         name: data.name,
         sprites: data.sprites,
+        stats: data.stats,
+        types: data.types,
       };
     });
 
