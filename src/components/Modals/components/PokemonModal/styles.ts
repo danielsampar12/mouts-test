@@ -35,7 +35,7 @@ export const ModalContentContainer = styled.div`
 `;
 
 export const ModalBackground = styled.div`
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
@@ -49,8 +49,8 @@ export const ModalBackground = styled.div`
 
   z-index: 2;
 
-  width: 100vw;
-  min-height: 150vh;
+  min-height: 100%;
+  min-width: 100%;
   margin: 0;
 
   background: rgba(0, 0, 0, 0.5);
