@@ -23,13 +23,14 @@ describe("GlassCard", () => {
       },
     };
 
-    const { getByText, getByAltText } = render(
+    const { getByRole, getByAltText, getByText } = render(
       <GlassCard onClick={() => {}} pokemon={pokemon} />
     );
 
     expect(getByText("pikachu")).toBeInTheDocument();
 
-    expect(getByText("pikachu")).toBeInTheDocument();
+    expect(getByRole("heading").textContent).toMatch("pikachu");
+
     expect(getByAltText(`${pokemon.name} image`)).toHaveAttribute(
       "src",
       pokemon.sprites.front_default
