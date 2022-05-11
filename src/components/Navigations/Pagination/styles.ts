@@ -8,6 +8,10 @@ export const Container = styled.div`
 
   padding-right: 64px;
   padding-bottom: 16px;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 export const ButtonsContainer = styled.div``;
