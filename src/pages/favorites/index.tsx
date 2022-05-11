@@ -4,5 +4,5 @@ import { useFavoritePokemons } from "../../hooks/favoritePokemons";
 export default function Favorites() {
   const { favoritePokemons } = useFavoritePokemons();
 
-  return <PokemonPage pokemons={favoritePokemons} />;
+  return <PokemonPage isFavoritePage pokemons={favoritePokemons} />;
 }

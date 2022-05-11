@@ -27,35 +27,48 @@ interface PokemonType {
   };
 }
 
+const OFFSET_RATIO = 20;
+const LIMIT = 20;
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Pokemon[]>
 ) {
-  try {
-    const { data } = await api.get(
-      "https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20"
-    );
+  if (req.method === "GET") {
+    try {
+      const queryPage = req.query.page;
 
-    const pokemonDetailedDataPromises = data.results.map(
-      ({ url }: { url: string }) => {
-        return api.get(url);
-      }
-    );
+      const page = typeof queryPage === "string" ? +queryPage : 0;
 
-    const pokemonDetailed = await Promise.all(pokemonDetailedDataPromises);
+      const { data } = await api.get(
+        `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}&offset=${
+          page * OFFSET_RATIO
+        }`
+      );
 
-    const pokemonDetailedData: Pokemon[] = pokemonDetailed.map(({ data }) => {
-      return {
-        id: data.id,
-        name: data.name,
-        sprites: data.sprites,
-        stats: data.stats,
-        types: data.types,
-      };
-    });
+      const pokemonDetailedDataPromises = data.results.map(
+        ({ url }: { url: string }) => {
+          return api.get(url);
+        }
+      );
 
-    return res.status(200).json(pokemonDetailedData);
-  } catch (error) {
-    return res.status(500).json([]);
+      const pokemonDetailed = await Promise.all(pokemonDetailedDataPromises);
+
+      const pokemonDetailedData: Pokemon[] = pokemonDetailed.map(({ data }) => {
+        return {
+          id: data.id,
+          name: data.name,
+          sprites: data.sprites,
+          stats: data.stats,
+          types: data.types,
+        };
+      });
+
+      return res.status(200).json(pokemonDetailedData);
+    } catch (error) {
+      return res.status(500).json([]);
+    }
+  } else {
+    return res.status(405).json([]);
   }
 }

@@ -1,19 +1,29 @@
 import type { GetServerSideProps } from "next";
 import { PokemonPage } from "../components/Pages/components/PokemonPage";
-import { useFavoritePokemons } from "../hooks/favoritePokemons";
 import { api } from "../lib/axios";
 import { Pokemon } from "./api/pokemon";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get("/pokemon");
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const queryPage = query.page;
+
+  const page = typeof queryPage === "string" ? +queryPage : 0;
+
+  const { data } = await api.get(`/pokemon/?page=${page}`);
 
   return {
     props: {
       pokemons: data,
+      page,
     },
   };
 };
 
-export default function Home({ pokemons }: { pokemons: Pokemon[] }) {
-  return <PokemonPage pokemons={pokemons} />;
+export default function Home({
+  pokemons,
+  page,
+}: {
+  pokemons: Pokemon[];
+  page: number;
+}) {
+  return <PokemonPage queryPage={page} pokemons={pokemons} />;
 }
