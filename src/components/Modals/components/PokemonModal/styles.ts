@@ -50,7 +50,7 @@ export const ModalBackground = styled.div`
   z-index: 2;
 
   width: 100vw;
-  min-height: 100vh;
+  min-height: 150vh;
   margin: 0;
 
   background: rgba(0, 0, 0, 0.5);
