@@ -61,9 +61,11 @@ const pokemonMock: Pokemon = {
 
 describe("FavoriteButton test", () => {
   it("Should render correctly depending if it is not favorited", () => {
+    const addPokemonToFavorites = jest.fn();
+
     jest.spyOn(hooks, "useFavoritePokemons").mockImplementation(() => ({
       favoritePokemons: [],
-      addPokemonToFavorites: () => {},
+      addPokemonToFavorites,
       removeFromFavorites: () => {},
     }));
 
@@ -73,13 +75,18 @@ describe("FavoriteButton test", () => {
     expect(() => getByText("Tirar dos favoritos")).toThrow(
       "Unable to find an element"
     );
+
+    fireEvent.click(getByText("Favoritar pokemon"));
+    expect(addPokemonToFavorites).toHaveBeenCalledWith(pokemonMock);
   });
 
   it("Should render correctly depending if it is favorited", () => {
+    const removeFromFavorites = jest.fn();
+
     jest.spyOn(hooks, "useFavoritePokemons").mockImplementation(() => ({
       favoritePokemons: [pokemonMock],
       addPokemonToFavorites: () => {},
-      removeFromFavorites: () => {},
+      removeFromFavorites,
     }));
 
     const { getByText } = render(<FavoriteButton pokemon={pokemonMock} />);
@@ -88,5 +95,8 @@ describe("FavoriteButton test", () => {
     expect(() => getByText("Favoritar pokemon")).toThrow(
       "Unable to find an element"
     );
+
+    fireEvent.click(getByText("Tirar dos favoritos"));
+    expect(removeFromFavorites).toHaveBeenCalledWith(pokemonMock.id);
   });
 });
