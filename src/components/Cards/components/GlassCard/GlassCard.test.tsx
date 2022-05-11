@@ -1,14 +1,6 @@
 import { render } from "@testing-library/react";
 import { GlassCard } from ".";
 import { Pokemon } from "../../../../pages/api/pokemon";
-// import { PokemonLists } from "../../../Lists/components/PokemonLists";
-// import { PokemonModal } from "../../../Modals/components/PokemonModal";
-
-// const mockSetState = jest.fn();
-
-// jest.mock("react", () => ({
-//   useState: (initial: Pokemon) => [initial, mockSetState],
-// }));
 
 describe("GlassCard", () => {
   it("GlassCard renders correctly", () => {
@@ -21,6 +13,51 @@ describe("GlassCard", () => {
         back_default:
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png",
       },
+      stats: [
+        {
+          base_stat: 39,
+          stat: {
+            name: "hp",
+          },
+        },
+        {
+          base_stat: 52,
+          stat: {
+            name: "attack",
+          },
+        },
+        {
+          base_stat: 43,
+          stat: {
+            name: "defense",
+          },
+        },
+        {
+          base_stat: 60,
+          stat: {
+            name: "special-attack",
+          },
+        },
+        {
+          base_stat: 50,
+          stat: {
+            name: "special-defense",
+          },
+        },
+        {
+          base_stat: 65,
+          stat: {
+            name: "speed",
+          },
+        },
+      ],
+      types: [
+        {
+          type: {
+            name: "fire",
+          },
+        },
+      ],
     };
 
     const { getByRole, getByAltText, getByText } = render(
@@ -36,35 +73,4 @@ describe("GlassCard", () => {
       pokemon.sprites.front_default
     );
   });
-
-  // it("GlassCard renders PokemonModal with correct info", () => {
-  //   let pokemon: Pokemon | null = {
-  //     id: "1",
-  //     name: "pikachu",
-  //     sprites: {
-  //       front_default:
-  //         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-  //       back_default:
-  //         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png",
-  //     },
-  //   }
-
-  //   render(
-  //     <>
-  //       {renderModal && pokemon ? (
-  //         <PokemonModal
-  //           closeModal={() => (renderModal = false)}
-  //           pokemon={pokemon}
-  //         />
-  //       ) : (
-  //         <></>
-  //       )}
-  //       <PokemonLists
-  //         setModalPokemon={setModalPokemon}
-  //         openModal={() => setIsModalOpen(true)}
-  //         pokemons={pokemons}
-  //       />
-  //     </>
-  //   );
-  // });
 });

@@ -20,7 +20,6 @@ export function PokemonPage({ pokemons, isFavoritePage = false }: HomeProps) {
         <PokemonModal
           closeModal={() => setIsModalOpen(false)}
           pokemon={modalPokemon}
-          isFavoritePage={isFavoritePage}
         />
       ) : (
         <></>

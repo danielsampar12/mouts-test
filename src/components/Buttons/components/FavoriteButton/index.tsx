@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FiHeart, FiTrash } from "react-icons/fi";
 import { useFavoritePokemons } from "../../../../hooks/favoritePokemons";
 
@@ -6,14 +7,19 @@ import * as S from "./styles";
 
 interface FavoriteButtonProps {
   pokemon: Pokemon;
-  isFavorited?: boolean;
 }
 
-export function FavoriteButton({
-  pokemon,
-  isFavorited = false,
-}: FavoriteButtonProps) {
-  const { addPokemonToFavorites, removeFromFavorites } = useFavoritePokemons();
+export function FavoriteButton({ pokemon }: FavoriteButtonProps) {
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const { addPokemonToFavorites, removeFromFavorites, favoritePokemons } =
+    useFavoritePokemons();
+
+  useEffect(() => {
+    const isInFavorites = favoritePokemons.find(({ id }) => id === pokemon.id);
+
+    setIsFavorited(!!isInFavorites);
+  }, [favoritePokemons, pokemon.id]);
 
   const handleClick = () => {
     if (isFavorited) {

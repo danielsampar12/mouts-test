@@ -31,7 +31,7 @@ const UseFavoritePokemonsProvider = ({
   const getFavoritePokemons = useCallback(() => {
     const storagePokemons = localStorage.getItem("USER_POKEMONS");
 
-    const data = JSON.parse(storagePokemons || "");
+    const data = JSON.parse(storagePokemons || JSON.stringify([]));
 
     setFavoritePokemons(data);
   }, []);

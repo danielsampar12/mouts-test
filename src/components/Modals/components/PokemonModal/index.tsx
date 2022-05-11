@@ -6,15 +6,10 @@ import * as S from "./styles";
 
 interface PokemonModalProps {
   pokemon: Pokemon;
-  isFavoritePage?: boolean;
   closeModal(): void;
 }
 
-export function PokemonModal({
-  closeModal,
-  pokemon,
-  isFavoritePage,
-}: PokemonModalProps) {
+export function PokemonModal({ closeModal, pokemon }: PokemonModalProps) {
   return (
     <S.ModalBackground onClick={closeModal}>
       <S.Modal>
@@ -48,7 +43,7 @@ export function PokemonModal({
           </S.StatsContainer>
         </S.ModalContentContainer>
 
-        <FavoriteButton isFavorited={isFavoritePage} pokemon={pokemon} />
+        <FavoriteButton pokemon={pokemon} />
       </S.Modal>
     </S.ModalBackground>
   );
