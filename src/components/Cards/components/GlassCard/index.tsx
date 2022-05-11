@@ -14,7 +14,7 @@ export function GlassCard({ pokemon, onClick }: GlassCardProps) {
           alt={`${pokemon.name} image`}
           src={pokemon.sprites.front_default}
         />
-        <h2>{pokemon.name}</h2>
+        <h3>{pokemon.name}</h3>
       </S.CardContent>
     </S.Card>
   );

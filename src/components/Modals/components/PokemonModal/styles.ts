@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Modal = styled.div`
   position: relative;
-  height: 400px;
-  width: 600px;
+  height: 600px;
+  width: 800px;
   margin: 30px;
 
   opacity: 1;
@@ -40,7 +40,8 @@ export const ModalBackground = styled.div`
   z-index: 2;
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
 
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.3);

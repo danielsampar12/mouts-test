@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
-export const Card = styled.button`
-  all: unset;
-  cursor: pointer;
-
+export const Card = styled.div`
   position: relative;
-  height: 280px;
-  width: 400px;
+  height: 140px;
+  width: 200px;
   margin: 30px;
 
   display: flex;
@@ -31,9 +28,13 @@ export const CardContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding-top: 16px;
 `;
 
 export const PokemonImage = styled.img`
-  height: 120px;
-  width: 120px;
+  height: 68px;
+  width: 68px;
+
+  object-fit: contain;
 `;
