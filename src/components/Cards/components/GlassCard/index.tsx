@@ -10,7 +10,10 @@ export function GlassCard({ pokemon, onClick }: GlassCardProps) {
   return (
     <S.Card onClick={onClick}>
       <S.CardContent>
-        <S.PokemonImage src={pokemon.sprites.front_default} />
+        <S.PokemonImage
+          alt={`${pokemon.name} image`}
+          src={pokemon.sprites.front_default}
+        />
         <h2>{pokemon.name}</h2>
       </S.CardContent>
     </S.Card>
