@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pokemon } from "../../../../pages/api/pokemon";
 import { PokemonLists } from "../../../Lists/components/PokemonLists";
 import { PokemonModal } from "../../../Modals/components/PokemonModal";
+import { NavBar } from "../../../Navigations/components/NavBar";
 
 interface HomeProps {
   pokemons: Pokemon[];
@@ -13,6 +14,7 @@ export function HomePage({ pokemons }: HomeProps) {
 
   return (
     <>
+      <NavBar />
       {isModalOpen && modalPokemon ? (
         <PokemonModal
           closeModal={() => setIsModalOpen(false)}
