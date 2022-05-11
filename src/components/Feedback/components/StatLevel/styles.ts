@@ -6,14 +6,13 @@ export const Container = styled.div`
 
   align-items: center;
 
-  justify-content: center;
+  justify-content: flex-end;
+
+  width: 100%;
 `;
 
-export const StatName = styled.p`
+export const StatsTexts = styled.p`
   font-size: 18px;
-  color: "#a7a49f";
-`;
 
-export const StatValue = styled.p`
-  font-size: 18px;
+  padding-right: 12px;
 `;

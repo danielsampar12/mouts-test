@@ -11,8 +11,8 @@ export function StatLevel({ name, value }: StatLevelProps) {
 
   return (
     <S.Container>
-      <S.StatName>{parsedName}</S.StatName>
-      <S.StatValue>{value}</S.StatValue>
+      <S.StatsTexts>{parsedName}</S.StatsTexts>
+      <S.StatsTexts>{value}</S.StatsTexts>
       <ProgressBar value={value} />
     </S.Container>
   );
