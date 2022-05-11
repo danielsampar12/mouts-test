@@ -6,6 +6,11 @@ export const Modal = styled.div`
   width: 800px;
   margin: 30px;
 
+  @media (max-width: 700px) {
+    width: 350px;
+    margin: 0px;
+  }
+
   padding: 0 16px;
 
   opacity: 1;
@@ -32,6 +37,11 @@ export const ModalContentContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const ModalBackground = styled.div`
@@ -70,6 +80,11 @@ export const ImageAndTypesContainer = styled.div`
 export const PokemonImage = styled.img`
   height: 300px;
   width: 300px;
+
+  @media (max-width: 800px) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 export const PokemonTypesContainer = styled.div`
@@ -85,6 +100,10 @@ export const PokemonType = styled.p`
   margin: 8px;
 
   color: ${({ color }) => color};
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
 `;
 
 export const StatsContainer = styled.div`

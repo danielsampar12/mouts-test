@@ -15,4 +15,10 @@ export const StatsTexts = styled.p`
   font-size: 18px;
 
   padding-right: 12px;
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+
+    padding-right: 4px;
+  }
 `;

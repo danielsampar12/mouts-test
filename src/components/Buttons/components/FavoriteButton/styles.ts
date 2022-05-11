@@ -27,6 +27,13 @@ export const Button = styled.button<FavoriteButtonProps>`
     isFavorited ? "1px solid #ff6861" : undefined};
 
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    margin-top: 16px;
+  }
 `;
 
 export const ButtonContent = styled.div`
